@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 
 h1 {
     text-align: center;
-    margin-top: 200px;
+    margin-top: 100px;
     font-family: 'Londrina Solid', sans-serif;
     font-size: 36px;
     color: #006140;
@@ -11,18 +14,45 @@ h1 {
     line-height: normal;
 }
 
+h2 {
+    text-align: justify;
+    text-indent: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+h3 {
+    font-family: 'League Gothic', sans-serif;
+    padding-left: 15px;
+}
+
 body {
+    background-image: url("/src/img/footprint.png");
     background-color: #FFFFE0;
-    background-image: url();
+    background-blend-mode: multiply;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
     background-attachment: fixed;
 }
 
-.ods{
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #262626;
+}
+
+.ods {
     width: 60px;
     height: 60px;
-    text-align: end;
+    display: inline-flex;
+    overflow: hidden;
 }
 
 .botao {
@@ -30,41 +60,37 @@ body {
     font-size: 24px;
     background-color: #006140;
     color: #FFFFFF;
-    text-align: center;
     cursor: pointer;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-top: 410px;
+    margin-top: 80px;
 }
 
 .botao:hover {
     background-color: rgba(0, 97, 69, 0.8);
 }
 
-.bt {
-    align-items: center;
-}
-
-
-.imagens {
-    width: 350px;
-    height: 180px;
+.imagem {
+    width: 100%;
+    height: 100%;
+    float: left;
 }
 
 .container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
     margin: 0;
-    margin-left: 0;
-    margin-right: 0;
     padding: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+
+
+.rdp {
+    margin-top: 200px;
+    display: flex;
+    overflow: hidden;
 }
