@@ -48,11 +48,15 @@ a:hover {
     color: #262626;
 }
 
-.ods {
-    width: 60px;
-    height: 60px;
+.ods {    
     display: inline-flex;
     overflow: hidden;
+    padding-left: 75%;
+}
+
+.imagemOds{
+    width: 60px;
+    height: 60px;
 }
 
 .botao {
@@ -87,10 +91,8 @@ a:hover {
     overflow: hidden;
 }
 
-
-
 .rdp {
-    margin-top: 200px;
+    margin-top: 350px;
     display: flex;
     overflow: hidden;
 }
