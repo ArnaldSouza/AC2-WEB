@@ -20,6 +20,15 @@ a:link{
     text-decoration: none;
 }
 
+body {
+    background-image: url("/src/img/footprint.png");
+    background-color: #FFFFE0;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    
+}
+
 .dash{
     display: flex;
 }
