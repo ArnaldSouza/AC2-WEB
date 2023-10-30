@@ -1,15 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+
 h1{
+    font-family: 'Londrina Solid', sans-serif;
     text-align: center;
     padding-top: 15px;
 }
 
 h3{
-    text-align: left;
-    padding-top: 40px;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: justify;
+    text-indent: 15px;
     padding-left: 15px;
 }
 
-div{
+a:link{
+    text-decoration: none;
+}
+
+.dash{
     display: flex;
-    margin-left: 10%;
+}
+
+.space{
+    margin-top: 15rem;
+}
+
+.graphic{
+    margin-left: 20px;
+}
+
+.botao {
+    font-family: 'Londrina Solid', sans-serif;
+    font-size: 24px;
+    background-color: #006140;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.botao:hover {
+    background-color: rgba(0, 97, 69, 0.8);
 }

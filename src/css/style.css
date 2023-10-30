@@ -5,7 +5,7 @@
 
 h1 {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 25px;
     font-family: 'Londrina Solid', sans-serif;
     font-size: 36px;
     color: #006140;
@@ -37,6 +37,7 @@ body {
 
 a:link {
     text-decoration: none;
+    color: #000000;
 }
 
 a:visited {
@@ -45,7 +46,7 @@ a:visited {
 }
 
 a:hover {
-    color: #262626;
+    color: #000000;
 }
 
 .ods {    
@@ -71,7 +72,7 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-top: 80px;
+    margin-top: 150px;
 }
 
 .botao:hover {
@@ -88,11 +89,26 @@ a:hover {
     margin: 0;
     padding: 0;
     display: flex;
-    overflow: hidden;
+    
 }
 
 .rdp {
-    margin-top: 350px;
+    margin-top: 175px;
     display: flex;
-    overflow: hidden;
+}
+
+.bt{
+    font-family: 'Londrina Solid', sans-serif;
+    font-size: 24px;
+    background-color: #006140;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 20px;
 }
