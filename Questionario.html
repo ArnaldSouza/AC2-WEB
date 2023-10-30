@@ -27,8 +27,83 @@
         </div>
     </center>
     <center>
-        <button class="botao">proximo</button>
+        <button id="botaoNext" class="botao" onclick="next()">proximo</button>
+        <button id="botaoBack" class="botao" onclick="back()">Voltar</button>
     </center>
-</body>
 
-</html>
+    <div id="pagina1" style="display: block;">
+        <!--Conteúdo da página-->
+        PAG1
+    </div>
+
+    <div id="pagina2" style="display: none;">
+        <!--Conteúdo da página-->
+        PAG2
+    </div>
+
+    <div id="pagina3" style="display: none;">
+        <!--Conteúdo da página-->
+        PAG3
+    </div>
+
+    <div id="pagina3" style="display: none;">
+        <!--Conteúdo da página-->
+        PAG3
+    </div>
+
+
+    <div id="pagina3" style="display: none;">
+        <!--Conteúdo da página-->
+        PAG3
+    </div>
+
+
+
+    <script>
+        
+        var todasAsPaginas = [document.getElementById("pagina1"),document.getElementById("pagina2"),document.getElementById("pagina3")];
+        var ref = 0;
+        console.log(todasAsPaginas);
+
+        function next(){
+            if (ref == todasAsPaginas.length-1){
+                document.getElementById("botaoNext").disable;
+                console.log("caiuif");
+            }
+            else{
+            document.getElementById("botaoNext").enable;
+            ref =  ref +1;
+            tela();
+            } 
+            console.log(ref);
+        }
+            
+        function back(){
+            if(ref == 0){
+                document.getElementById("botaoBack").disable;
+                console.log("caiuif2");
+            }
+            else{
+            document.getElementById("botaoBack").enable;
+            ref =  ref - 1;
+            tela(); 
+            
+            }
+            console.log(ref);
+        }
+        function tela(){    
+            todasAsPaginas[ref].style.display = "block";
+            for (var i = 0; i < todasAsPaginas.length; i++) {
+                if (i === ref) {
+                    todasAsPaginas[i].style.display = "block";
+                } else {
+                    todasAsPaginas[i].style.display = "none";
+                }
+            }
+         }   
+        
+    </script>
+
+</body>
+    </html>
+
