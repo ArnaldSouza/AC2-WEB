@@ -5,40 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/Questionario.css">
+    <link rel="stylesheet" href="Questionario.css">
     <title>Questionario</title>
 </head>
 
 
 <body>
 
-
-
-
     <div id="pagina1" style="display: block;">
         <!--Conteúdo da página-->
         <header>
-
             <h2>Quantos quilômetros, em média, você dirige de carro a cada mês?</h2>
-
         </header>
 
         <div>
-            <h2>0km</h2>
+            <h2>1km</h2>
             <h2>800km</h2>
         </div>
 
         <div class="slidecontainer">
-            <input min="0" max="800" id="myRange1">
+            <input min="1" max="800" id="myRange1">
         </div>
+
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Não tenho carro <!--Pular para página 3-->
+            </label>
+        </div>
+
     </div>
 
 
     <div id="pagina2" style="display: none;">
         <header>
-
-            <h2>Qual a eficiência do seu veículo?</h2>
-
+            <h2>Qual a eficiência do seu carro?</h2>
         </header>
 
         <div>
@@ -49,9 +51,137 @@
         <div class="slidecontainer">
             <input type="range" min="1" max="40" class="slider" id="myRange2">
         </div>
+
     </div>
 
     <div id="pagina3" style="display: none;">
+        <header>
+            <h2>
+                Quantos quilômetros, em média, você dirige de moto a cada mês?
+            </h2>
+        </header>
+        <div>
+            <h2>0 km</h2>
+            <h2>800 km</h2>
+        </div>
+
+        <div class="slidecontainer">
+            <input type="range" min="1" max="800" class="slider" id="myRange3">
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Não tenho moto <!--Pular para pagina 5-->
+            </label>
+        </div>
+
+    </div>
+
+    <div id="pagina4" style="display: none;">
+        <header>
+            <h2>
+                Qual o rendimento da sua moto?
+            </h2>
+        </header>
+        <div>
+            <h2>1 km/L</h2>
+            <h2>40 km/L</h2>
+        </div>
+
+        <div class="slidecontainer">
+            <input type="range" min="1" max="40" class="slider" id="myRange4">
+        </div>
+    </div>
+
+    <div id="pagina5" style="display: none;">
+        <header>
+            <h2>
+                Quantos quilometros você anda de transporte público, aproximadamente, por mês?
+            </h2>
+        </header>
+        <div>
+            <h2>0 km</h2>
+            <h2>800 km</h2>
+        </div>
+
+        <div class="slidecontainer">
+            <input type="range" min="1" max="40" class="slider" id="myRange5">
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Não ando de transporte público
+            </label>
+        </div>
+
+    </div>
+
+    <div id="pagina6" style="display: none;">
+        <header>
+            <h2>
+                Quantas pessoas moram com você?
+            </h2>
+        </header>
+        <div>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Selecione</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="pagina7" style="display: none;">
+        <header>
+            <h2>
+                Das pessoas em sua casa, quantas não consomem carne?
+            </h2>
+        </header>
+        <div>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Selecione</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="pagina8" style="display: none;">
+        <header>
+            <h2>
+                Aproximadamente qual a porcentagem de energia reutilizavel da sua casa?
+            </h2>
+        </header>
+        <div>
+            <h2>0 %</h2>
+            <h2>100%</h2>
+        </div>
+
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" class="slider" id="myRange2">
+        </div>
+
+
 
     </div>
 
@@ -64,7 +194,9 @@
 
 <script>
     var todasAsPaginas = [document.getElementById("pagina1"), document.getElementById("pagina2"), document
-        .getElementById("pagina3")
+        .getElementById("pagina3"), document.getElementById("pagina4"), document.getElementById("pagina5"), document
+            .getElementById("pagina6"),
+    document.getElementById("pagina7"), document.getElementById("pagina8")
     ];
     var ref = 0;
     console.log(todasAsPaginas);
