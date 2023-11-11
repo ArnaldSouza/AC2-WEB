@@ -24,7 +24,7 @@
         </div>
 
         <div class="slidecontainer">
-            <input min="1" max="800" id="myRange1">
+            <input min="1" max="800" id="kmCarro">
         </div>
 
 
@@ -49,7 +49,7 @@
         </div>
 
         <div class="slidecontainer">
-            <input type="range" min="1" max="40" class="slider" id="myRange2">
+            <input type="range" min="1" max="40" class="slider" id="eficCarro">
         </div>
 
     </div>
@@ -61,12 +61,12 @@
             </h2>
         </header>
         <div>
-            <h2>0 km</h2>
+            <h2>1 km</h2>
             <h2>800 km</h2>
         </div>
 
         <div class="slidecontainer">
-            <input type="range" min="1" max="800" class="slider" id="myRange3">
+            <input type="range" min="1" max="800" class="slider" id="kmMoto">
         </div>
 
         <div class="form-check">
@@ -90,7 +90,7 @@
         </div>
 
         <div class="slidecontainer">
-            <input type="range" min="1" max="40" class="slider" id="myRange4">
+            <input type="range" min="1" max="40" class="slider" id="eficMoto">
         </div>
     </div>
 
@@ -106,7 +106,7 @@
         </div>
 
         <div class="slidecontainer">
-            <input type="range" min="1" max="40" class="slider" id="myRange5">
+            <input type="range" min="1" max="800" class="slider" id="kmTransPublico">
         </div>
 
         <div class="form-check">
@@ -125,7 +125,7 @@
             </h2>
         </header>
         <div>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" id="pessoasMoram">
                 <option selected>Selecione</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -149,7 +149,7 @@
             </h2>
         </header>
         <div>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" id="consumoCarne">
                 <option selected>Selecione</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -178,10 +178,19 @@
         </div>
 
         <div class="slidecontainer">
-            <input type="range" min="1" max="100" class="slider" id="myRange2">
+            <input type="range" min="0" max="100" class="slider" id="energia">
         </div>
 
 
+
+    </div>
+
+    <div id="pagina9" style="display: none;">
+
+
+        <span id="resultado">
+            Resultado
+        </span>
 
     </div>
 
@@ -196,7 +205,7 @@
     var todasAsPaginas = [document.getElementById("pagina1"), document.getElementById("pagina2"), document
         .getElementById("pagina3"), document.getElementById("pagina4"), document.getElementById("pagina5"), document
             .getElementById("pagina6"),
-    document.getElementById("pagina7"), document.getElementById("pagina8")
+    document.getElementById("pagina7"), document.getElementById("pagina8"), document.getElementById("pagina9")
     ];
     var ref = 0;
     console.log(todasAsPaginas);
@@ -210,7 +219,42 @@
             ref = ref + 1;
             tela();
         }
-        console.log(ref);
+
+        const gasCarb = 2.28;
+        const energiaNRenovavel = 0.0817;
+        const emissaoPerCaipta = 7000;
+        const carCarne = 27;
+        const consumoEnergiaMensal = 1200;
+        const emissaoTransportePublico = 1.28;
+
+        var kmCarro = document.getElementById("kmCarro").value;
+        var eficCarro = document.getElementById("eficCarro").value;
+        var kmMoto = document.getElementById("kmMoto").value;
+        var eficMoto = document.getElementById("eficMoto").value;
+        var kmTransPublico = document.getElementById("kmTransPublico").value;
+        var pessoasMoram = document.getElementById("pessoasMoram").value;
+        var consumoCarne = document.getElementById("consumoCarne").value;
+        var energia = document.getElementById("energia").value;
+
+
+        console.log(kmCarro);
+        console.log(eficCarro);
+        console.log(kmMoto);
+        console.log(eficMoto);
+        console.log(kmTransPublico);
+        console.log(pessoasMoram);
+        console.log(consumoCarne);
+        console.log(energia);
+
+        var kgCarbono = ((kmCarro) * (eficCarro) * (gasCarb)) + 
+        ((kmMoto) * (eficMoto)* (gasCarb)) + 
+        ((((consumoEnergiaMensal)/100)- (energia)) * (energiaNRenovavel)) + 
+        ( (pessoasMoram) * (emissaoPerCaipta)) +
+        ((consumoCarne) * (carCarne)) +
+        ((kmTransPublico)*(emissaoTransportePublico))
+        ;
+
+        document.getElementById("resultado").innerHTML = kgCarbono;
     }
 
     function back() {
@@ -236,14 +280,6 @@
         }
     }
 
-    var mediaQuilometrosDirigidos = document.getElementById("myRange1").value;
-    var var2 = document.getElementById("myRange2").value;
-    var var3 = document.getElementById("myRange2").value;
-    var var4 = document.getElementById("myRange2").value;
-    var var5 = document.getElementById("myRange2").value;
-    var var6 = document.getElementById("myRange2").value;
-    var var7 = document.getElementById("myRange2").value;
-    var var8 = document.getElementById("myRange2").value;
 </script>
 
 </html>
