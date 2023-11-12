@@ -18,8 +18,7 @@ document.getElementById("pagina7"), document.getElementById("pagina8"), document
 var ref = 0;
 
 function next() {
-    if (ref == todasAsPaginas.length - 1) {
-        document.getElementById("botaoBack").style.visibility = "hidden";
+    if (ref == 9) {        
         window.location.href = "./questionario.html";
     } else {
         ref = ref + 1;
@@ -28,6 +27,7 @@ function next() {
 
     if (ref == 8) {
         document.getElementById("botaoNext").innerHTML = "Refazer";
+        document.getElementById("botaoBack").style.visibility = "hidden";
     }
 
     const gasCarb = 2.28;
@@ -67,7 +67,6 @@ function back() {
         ref = ref - 1;
         tela();
     }
-
 }
 
 function tela() {
@@ -85,7 +84,7 @@ var ctx = document.getElementById("graficoPizza").getContext("2d");
 var myPieChart;
 
 const image = new Image();
-image.src = '../src/img/co2.png';
+image.src = './src/img/co2.png';
 
 const plugin = {
     id: 'customCanvasBackgroundImage',
