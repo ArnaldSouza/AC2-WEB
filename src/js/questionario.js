@@ -16,20 +16,18 @@ var todasAsPaginas = [document.getElementById("pagina1"), document.getElementByI
 document.getElementById("pagina7"), document.getElementById("pagina8"), document.getElementById("pagina9")
 ];
 var ref = 0;
-console.log(todasAsPaginas);
 
 function next() {
-    if (ref == 9) {
-        window.location.href = "../questionario.html";
+    if (ref == todasAsPaginas.length - 1) {
+        document.getElementById("botaoBack").style.visibility = "hidden";
+        window.location.href = "./questionario.html";
     } else {
-        document.getElementById("botaoNext").enable;
         ref = ref + 1;
         tela();
     }
 
     if (ref == 8) {
         document.getElementById("botaoNext").innerHTML = "Refazer";
-        document.getElementById("botaoBack").style.visibility = "hidden";
     }
 
     const gasCarb = 2.28;
@@ -62,13 +60,13 @@ function next() {
 
 function back() {
     if (ref == 0) {
-        window.location.href = "./index.html"
+        window.location.href = "./index.html";
+
     } else {
         document.getElementById("botaoBack").enable;
         ref = ref - 1;
         tela();
     }
-
 
 }
 
