@@ -19,12 +19,17 @@ var ref = 0;
 console.log(todasAsPaginas);
 
 function next() {
-    if (ref == todasAsPaginas.length - 1) {
-        document.getElementById("botaoNext").disable;
+    if (ref == 9) {
+        window.location.href = "../questionario.html";
     } else {
         document.getElementById("botaoNext").enable;
         ref = ref + 1;
         tela();
+    }
+
+    if (ref == 8) {
+        document.getElementById("botaoNext").innerHTML = "Refazer";
+        document.getElementById("botaoBack").style.visibility = "hidden";
     }
 
     const gasCarb = 2.28;
@@ -47,7 +52,7 @@ function next() {
     energia = (consumoEnergiaMensal) * pessoasMoram;
 
     resultado = transporte + carne + energia;
-    var rst = resultado.toFixed(2);    
+    var rst = resultado.toFixed(2);
 
     document.getElementById('resultado').innerHTML = rst;
 
@@ -55,17 +60,16 @@ function next() {
 }
 
 
-
-
 function back() {
     if (ref == 0) {
-        document.getElementById("botaoBack").disable;
+        window.location.href = "./index.html"
     } else {
         document.getElementById("botaoBack").enable;
         ref = ref - 1;
         tela();
     }
-    console.log(ref);
+
+
 }
 
 function tela() {
@@ -88,17 +92,17 @@ image.src = '../src/img/co2.png';
 const plugin = {
     id: 'customCanvasBackgroundImage',
     beforeDraw: (chart) => {
-      if (image.complete) {
-        const ctx = chart.ctx;
-        const {top, left, width, height} = chart.chartArea;
-        const x = left + width / 2 - image.width / 2;
-        const y = top + height / 2 - image.height / 2;
-        ctx.drawImage(image, x, y);
-      } else {
-        image.onload = () => chart.draw();
-      }
+        if (image.complete) {
+            const ctx = chart.ctx;
+            const { top, left, width, height } = chart.chartArea;
+            const x = left + width / 2 - image.width / 2;
+            const y = top + height / 2 - image.height / 2;
+            ctx.drawImage(image, x, y);
+        } else {
+            image.onload = () => chart.draw();
+        }
     }
-  };
+};
 
 function criarGraficoPizza(dados, cores) {
     myPieChart = new Chart(ctx, {
@@ -109,10 +113,10 @@ function criarGraficoPizza(dados, cores) {
                 data: Object.values(dados),
                 backgroundColor: cores,
                 hoverOffset: 20,
-                }]
-            
+            }]
+
         },
-        plugins: [plugin],       
+        plugins: [plugin],
     });
 }
 
@@ -122,17 +126,17 @@ function atualizarGraficoPizza(dados) {
 }
 
 function atualizarGrafico() {
-   
+
     var dadosAtualizados = {
         'Transporte': transporte,
         'Energia': energia,
         'Carne': carne,
     };
-    
+
     var coresIniciais = ['rgb(255, 0, 0)', 'rgb(54, 162, 235)', 'rgb(0,255,0)'];
     if (!myPieChart) {
         criarGraficoPizza(dadosAtualizados, coresIniciais);
     } else {
-        atualizarGraficoPizza(dadosAtualizados);        
+        atualizarGraficoPizza(dadosAtualizados);
     }
 }
