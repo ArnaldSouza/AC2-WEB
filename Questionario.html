@@ -6,33 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/Questionario.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Questionario</title>
+
 </head>
 
 
-<body>
+<body id="bode">
 
     <div id="pagina1" style="display: block;">
-        <!--Conteúdo da página-->
+
         <header>
-            <h2>Quantos quilômetros, em média, você dirige de carro a cada mês?</h2>
+            <h2 class="texto">Quantos quilômetros, em média, você dirige de carro a cada mês?</h2>
         </header>
 
-        <div>
-            <h2>1km</h2>
-            <h2>800km</h2>
-        </div>
-
         <div class="slidecontainer">
-            <input min="1" max="800" id="kmCarro">
-        </div>
-
-
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-                Não tenho carro <!--Pular para página 3-->
-            </label>
+            <h2 class="numero">1km</h2>
+            <input type="range" min="1" max="800" class="slider" id="kmCarro">
+            <h2 class="numero">800km</h2>
         </div>
 
     </div>
@@ -40,90 +33,73 @@
 
     <div id="pagina2" style="display: none;">
         <header>
-            <h2>Qual a eficiência do seu carro?</h2>
+            <h2 class="texto">
+                Qual a eficiência do seu carro? (km/l) <br>
+                Para carro elétrico deixe 0
+            </h2>
         </header>
 
-        <div>
-            <h2>1 km/L</h2>
-            <h2>40 km/L</h2>
-        </div>
-
         <div class="slidecontainer">
+            <h2 class="numero">0</h2>
             <input type="range" min="1" max="40" class="slider" id="eficCarro">
+            <h2 class="numero">40</h2>
         </div>
 
     </div>
 
     <div id="pagina3" style="display: none;">
         <header>
-            <h2>
+            <h2 class="texto">
                 Quantos quilômetros, em média, você dirige de moto a cada mês?
             </h2>
         </header>
-        <div>
-            <h2>1 km</h2>
-            <h2>800 km</h2>
-        </div>
 
         <div class="slidecontainer">
+            <h2 class="numero">1 km</h2>
             <input type="range" min="1" max="800" class="slider" id="kmMoto">
-        </div>
-
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-                Não tenho moto <!--Pular para pagina 5-->
-            </label>
+            <h2 class="numero">800 km</h2>
         </div>
 
     </div>
 
     <div id="pagina4" style="display: none;">
         <header>
-            <h2>
-                Qual o rendimento da sua moto?
+            <h2 class="texto">
+                Qual o rendimento da sua moto? (km/l) <br>
+                Para moto elétrica deixe 0
             </h2>
+
         </header>
-        <div>
-            <h2>1 km/L</h2>
-            <h2>40 km/L</h2>
-        </div>
 
         <div class="slidecontainer">
-            <input type="range" min="1" max="40" class="slider" id="eficMoto">
+            <h2 class="numero">0</h2>
+            <input type="range" min="0" max="40" class="slider" id="eficMoto">
+            <h2 class="numero">40</h2>
         </div>
     </div>
 
     <div id="pagina5" style="display: none;">
         <header>
-            <h2>
+            <h2 class="texto">
                 Quantos quilometros você anda de transporte público, aproximadamente, por mês?
             </h2>
         </header>
-        <div>
-            <h2>0 km</h2>
-            <h2>800 km</h2>
-        </div>
 
         <div class="slidecontainer">
+            <h2 class="numero">1 km</h2>
             <input type="range" min="1" max="800" class="slider" id="kmTransPublico">
-        </div>
-
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-                Não ando de transporte público
-            </label>
+            <h2 class="numero">800 km</h2>
         </div>
 
     </div>
 
     <div id="pagina6" style="display: none;">
         <header>
-            <h2>
+            <h2 class="texto">
                 Quantas pessoas moram com você?
             </h2>
         </header>
+        <center>
         <div>
             <select class="form-select" aria-label="Default select example" id="pessoasMoram">
                 <option selected>Selecione</option>
@@ -140,15 +116,17 @@
                 <option value="10">10</option>
             </select>
         </div>
+    </center>
     </div>
 
     <div id="pagina7" style="display: none;">
         <header>
-            <h2>
-                Das pessoas em sua casa, quantas não consomem carne?
+            <h2 class="texto">
+                Das pessoas em sua casa, quantas consomem carne?
             </h2>
         </header>
-        <div>
+        <center>
+        <div class="numero">
             <select class="form-select" aria-label="Default select example" id="consumoCarne">
                 <option selected>Selecione</option>
                 <option value="0">0</option>
@@ -164,122 +142,35 @@
                 <option value="10">10</option>
             </select>
         </div>
+        </center>
     </div>
 
     <div id="pagina8" style="display: none;">
         <header>
-            <h2>
+            <h2 class="texto">
                 Aproximadamente qual a porcentagem de energia reutilizavel da sua casa?
             </h2>
         </header>
-        <div>
-            <h2>0 %</h2>
-            <h2>100%</h2>
-        </div>
 
         <div class="slidecontainer">
+            <h2 class="numero">0</h2>
             <input type="range" min="0" max="100" class="slider" id="energia">
+            <h2 class="numero">100</h2>
         </div>
-
-
-
+        
     </div>
 
     <div id="pagina9" style="display: none;">
-
-
-        <span id="resultado">
-            Resultado
-        </span>
-
+        <canvas id="graficoPizza" width="400" height="400"></canvas>
     </div>
 
-
-    <button id="botaoNext" class="botao" onclick="next()">proximo</button>
+    <button id="botaoNext" class="botao" onclick="next()">Próximo</button>
     <button id="botaoBack" class="botao" onclick="back()">Voltar</button>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./Questionario.js"></script>
 </body>
-
-
-<script>
-    var todasAsPaginas = [document.getElementById("pagina1"), document.getElementById("pagina2"), document
-        .getElementById("pagina3"), document.getElementById("pagina4"), document.getElementById("pagina5"), document
-            .getElementById("pagina6"),
-    document.getElementById("pagina7"), document.getElementById("pagina8"), document.getElementById("pagina9")
-    ];
-    var ref = 0;
-    console.log(todasAsPaginas);
-
-
-    function next() {
-        if (ref == todasAsPaginas.length - 1) {
-            document.getElementById("botaoNext").disable;
-        } else {
-            document.getElementById("botaoNext").enable;
-            ref = ref + 1;
-            tela();
-        }
-
-        const gasCarb = 2.28;
-        const energiaNRenovavel = 0.0817;
-        const emissaoPerCaipta = 7000;
-        const carCarne = 27;
-        const consumoEnergiaMensal = 1200;
-        const emissaoTransportePublico = 1.28;
-
-        var kmCarro = document.getElementById("kmCarro").value;
-        var eficCarro = document.getElementById("eficCarro").value;
-        var kmMoto = document.getElementById("kmMoto").value;
-        var eficMoto = document.getElementById("eficMoto").value;
-        var kmTransPublico = document.getElementById("kmTransPublico").value;
-        var pessoasMoram = document.getElementById("pessoasMoram").value;
-        var consumoCarne = document.getElementById("consumoCarne").value;
-        var energia = document.getElementById("energia").value;
-
-
-        console.log(kmCarro);
-        console.log(eficCarro);
-        console.log(kmMoto);
-        console.log(eficMoto);
-        console.log(kmTransPublico);
-        console.log(pessoasMoram);
-        console.log(consumoCarne);
-        console.log(energia);
-
-        var kgCarbono = ((kmCarro) * (eficCarro) * (gasCarb)) + 
-        ((kmMoto) * (eficMoto)* (gasCarb)) + 
-        ((((consumoEnergiaMensal)/100)- (energia)) * (energiaNRenovavel)) + 
-        ( (pessoasMoram) * (emissaoPerCaipta)) +
-        ((consumoCarne) * (carCarne)) +
-        ((kmTransPublico)*(emissaoTransportePublico))
-        ;
-
-        document.getElementById("resultado").innerHTML = kgCarbono;
-    }
-
-    function back() {
-        if (ref == 0) {
-            document.getElementById("botaoBack").disable;
-        } else {
-            document.getElementById("botaoBack").enable;
-            ref = ref - 1;
-            tela();
-
-        }
-        console.log(ref);
-    }
-
-    function tela() {
-        todasAsPaginas[ref].style.display = "block";
-        for (var i = 0; i < todasAsPaginas.length; i++) {
-            if (i === ref) {
-                todasAsPaginas[i].style.display = "block";
-            } else {
-                todasAsPaginas[i].style.display = "none";
-            }
-        }
-    }
-
-</script>
 
 </html>
