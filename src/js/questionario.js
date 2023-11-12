@@ -8,7 +8,7 @@ var consumoCarne;
 var energia;
 var carne;
 var transporte;
-var teste2;
+var resultado;
 
 var todasAsPaginas = [document.getElementById("pagina1"), document.getElementById("pagina2"), document
     .getElementById("pagina3"), document.getElementById("pagina4"), document.getElementById("pagina5"), document
@@ -28,11 +28,9 @@ function next() {
     }
 
     const gasCarb = 2.28;
-    const energiaNRenovavel = 0.0817;
-    const emissaoPerCaipta = 7000;
     const carCarne = 27;
     const consumoEnergiaMensal = 1200;
-    const emissaoTransportePublico = 1.28;
+    const emissaoTransportePublico = 0.3;
 
     kmCarro = document.getElementById("kmCarro").value;
     eficCarro = document.getElementById("eficCarro").value;
@@ -44,16 +42,14 @@ function next() {
     energia = document.getElementById("energia").value;
 
 
-    transporte = ((kmCarro) * (eficCarro) * (gasCarb)) + ((kmMoto) * (eficMoto) * (gasCarb)) + ((kmTransPublico) * (emissaoTransportePublico));
+    transporte = ((kmCarro) / (eficCarro) * (gasCarb)) + ((kmMoto) / (eficMoto) * (gasCarb)) + ((kmTransPublico) * (emissaoTransportePublico));
     carne = (consumoCarne) * (carCarne);
     energia = (consumoEnergiaMensal) * pessoasMoram;
 
-    var kgCarbono = ((kmCarro) * (eficCarro) * (gasCarb)) +
-        ((kmMoto) * (eficMoto) * (gasCarb)) +
-        ((((consumoEnergiaMensal) / 100) - (energia)) * (energiaNRenovavel)) +
-        ((pessoasMoram) * (emissaoPerCaipta)) +
-        ((consumoCarne) * (carCarne)) +
-        ((kmTransPublico) * (emissaoTransportePublico));
+    resultado = transporte + carne + energia;
+    var rst = resultado.toFixed(2);    
+
+    document.getElementById('resultado').innerHTML = rst;
 
     atualizarGrafico();
 }
@@ -86,6 +82,24 @@ function tela() {
 var ctx = document.getElementById("graficoPizza").getContext("2d");
 var myPieChart;
 
+const image = new Image();
+image.src = '../src/img/co2.png';
+
+const plugin = {
+    id: 'customCanvasBackgroundImage',
+    beforeDraw: (chart) => {
+      if (image.complete) {
+        const ctx = chart.ctx;
+        const {top, left, width, height} = chart.chartArea;
+        const x = left + width / 2 - image.width / 2;
+        const y = top + height / 2 - image.height / 2;
+        ctx.drawImage(image, x, y);
+      } else {
+        image.onload = () => chart.draw();
+      }
+    }
+  };
+
 function criarGraficoPizza(dados, cores) {
     myPieChart = new Chart(ctx, {
         type: 'doughnut',
@@ -94,8 +108,11 @@ function criarGraficoPizza(dados, cores) {
             datasets: [{
                 data: Object.values(dados),
                 backgroundColor: cores,
-            }]
+                hoverOffset: 20,
+                }]
+            
         },
+        plugins: [plugin],       
     });
 }
 
@@ -105,17 +122,17 @@ function atualizarGraficoPizza(dados) {
 }
 
 function atualizarGrafico() {
-    // Substitua os valores abaixo pelos seus dados reais
+   
     var dadosAtualizados = {
-        'transporte': transporte,
-        'energia': energia,
-        'carne': carne,
+        'Transporte': transporte,
+        'Energia': energia,
+        'Carne': carne,
     };
-
+    
     var coresIniciais = ['rgb(255, 0, 0)', 'rgb(54, 162, 235)', 'rgb(0,255,0)'];
     if (!myPieChart) {
         criarGraficoPizza(dadosAtualizados, coresIniciais);
     } else {
-        atualizarGraficoPizza(dadosAtualizados);
+        atualizarGraficoPizza(dadosAtualizados);        
     }
 }

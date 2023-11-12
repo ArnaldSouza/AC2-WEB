@@ -86,7 +86,7 @@ div {
   background-attachment: fixed;
 }
 
-form{
+form {
   text-align: center;
 }
 
@@ -102,7 +102,6 @@ form{
   margin: 100px auto;
 }
 
-/*arrumar margens*/
 #pessoasMoram {
   position: relative;
   background-color: #ffffff;
@@ -113,4 +112,23 @@ form{
   box-shadow: rgba(0, 97, 69, 0.8);
   display: block;
   margin: 100px auto;
+}
+
+#pg9 {
+  margin-top: 25px;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+#graficoPizza {
+  width: 800px;
+  height: 800px;
+}
+
+#final{
+  font-family: 'League Gothic', sans-serif;
+  color: #000000;
+  padding-top: 20px;
+  padding-left: 25px;
+  text-align: justify;
 }
